@@ -25,14 +25,9 @@ function createListNode(eles) {
  * @return {ListNode}
  */
 function addTwoNumbers(node1, node2) {
-    let i = 0;
     let result = [];
     let existCarry = false;
-    while (i < 100) {
-
-        if (!node1 && !node2) {
-            break;
-        }
+    while (node1 || node2) {
 
         let node1Value = 0, node2Value = 0;
         if (node1) {
@@ -55,8 +50,6 @@ function addTwoNumbers(node1, node2) {
             result.push(sum % 10);
             existCarry = true;
         }
-
-        i++;
     }
     if (existCarry) {
         result.push(1);
