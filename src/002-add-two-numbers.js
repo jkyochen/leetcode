@@ -1,27 +1,50 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
  */
+function ListNode(val, next) {
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
+}
+
 /**
- * @param {ListNode} l1
- * @param {ListNode} l2
+ * @param {number[]} eles
  * @return {ListNode}
  */
-module.exports = function (l1, l2) {
+function createListNode(eles) {
+    eles = eles.reverse();
+    let nextNode;
+    for (const ele of eles) {
+        nextNode = new ListNode(ele, nextNode);
+    }
+    return nextNode;
+}
+
+/**
+ * @param {ListNode} node1
+ * @param {ListNode} node2
+ * @return {ListNode}
+ */
+function addTwoNumbers(node1, node2) {
     let i = 0;
     let result = [];
     let existCarry = false;
     while (i < 100) {
-        let a1 = l1[i];
-        let a2 = l2[i];
-        if (a1 === undefined && a2 === undefined) {
+
+        if (!node1 && !node2) {
             break;
         }
 
-        let sum = (a1 || 0) + (a2 || 0);
+        let node1Value = 0, node2Value = 0;
+        if (node1) {
+            node1Value = node1.val;
+            node1 = node1.next;
+        }
+        if (node2) {
+            node2Value = node2.val;
+            node2 = node2.next;
+        }
+
+        let sum = node1Value + node2Value;
         if (existCarry) {
             sum += 1;
         }
@@ -32,10 +55,16 @@ module.exports = function (l1, l2) {
             result.push(sum % 10);
             existCarry = true;
         }
+
         i++;
     }
     if (existCarry) {
         result.push(1);
     }
-    return result;
+    return createListNode(result);
+}
+
+module.exports = {
+    createListNode,
+    addTwoNumbers,
 };
