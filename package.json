@@ -8,12 +8,14 @@
   },
   "scripts": {
     "rome": "rome check --apply-suggested . && rome format --write .",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "Lanlyhs",
   "license": "ISC",
   "devDependencies": {
+    "husky": "^8.0.3",
     "jest": "^29.3.1",
     "rome": "^10.0.1"
   }
