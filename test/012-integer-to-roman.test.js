@@ -1,6 +1,6 @@
 const { intToRoman } = require("../src/012-integer-to-roman");
 
-describe("Atoi", () => {
+describe("Integer to Roman", () => {
 	it("3", () => {
 		expect(intToRoman(3)).toEqual("III");
 	});
