@@ -1,4 +1,4 @@
-const { romanToInt } = require("../src/013-roman-to-integer");
+const { romanToInt } = require(require(".")(__filename).sourcePath);
 
 describe("Roman to Integer", () => {
 	it("III", () => {
