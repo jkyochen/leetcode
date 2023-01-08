@@ -15,4 +15,37 @@ module.exports = [
 				return (acc += cur.value * (remainRomans.length - 1));
 			}, 0);
 	},
+	/**
+	 * @param {string} s
+	 * @return {number}
+	 */
+	function romanToInt1(s) {
+		let curMaxValue = 1;
+		return s
+			.split("")
+			.reverse()
+			.reduce((acc, cur) => {
+				if (RomansNumberPair[cur] < curMaxValue) {
+					return acc - RomansNumberPair[cur];
+				}
+				curMaxValue = RomansNumberPair[cur];
+				return acc + curMaxValue;
+			}, 0);
+	},
 ];
+
+const RomansNumberPair = {
+	I: 1,
+	V: 5,
+	X: 10,
+	L: 50,
+	C: 100,
+	D: 500,
+	M: 1000,
+	IV: 4,
+	IX: 9,
+	XL: 40,
+	XC: 90,
+	CD: 400,
+	CM: 900,
+};
