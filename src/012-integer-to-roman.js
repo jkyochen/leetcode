@@ -31,3 +31,5 @@ const specialRomans = {
 	400: "CD",
 	900: "CM",
 };
+
+module.exports.specialRomans = specialRomans;
