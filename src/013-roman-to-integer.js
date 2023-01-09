@@ -1,4 +1,3 @@
-const { specialRomans } = require("./012-integer-to-roman");
 const { RomansNumberPair } = require("../util");
 
 module.exports = [
@@ -7,8 +6,8 @@ module.exports = [
 	 * @return {number}
 	 */
 	function romanToInt(s) {
-		return Object.entries(specialRomans)
-			.map(([k, v]) => ({ value: k, romanChar: v }))
+		return Object.entries(RomansNumberPair)
+			.map(([k, v]) => ({ value: v, romanChar: k }))
 			.sort((a, b) => b.romanChar.length - a.romanChar.length)
 			.reduce((acc, cur) => {
 				let remainRomans = s.split(cur.romanChar);
