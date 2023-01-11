@@ -41,4 +41,28 @@ module.exports = [
 		}
 		return result;
 	},
+	/**
+	 * @param {string} digits
+	 * @return {string[]}
+	 */
+	function letterCombinations1(digits) {
+		if (!digits.length) {
+			return [];
+		}
+		let combinResult = [];
+		listAllCombin("", 0);
+		return combinResult;
+
+		function listAllCombin(combinLetter, index) {
+			if (index === digits.length) {
+				combinResult.push(combinLetter);
+				return;
+			}
+			let letters = PhoneNumberLetterPair[digits[index]];
+			for (let i = 0; i < letters.length; i++) {
+				const ele = letters[i];
+				listAllCombin(combinLetter + ele, index + 1);
+			}
+		}
+	},
 ];
