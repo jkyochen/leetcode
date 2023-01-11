@@ -59,10 +59,9 @@ module.exports = [
 				return;
 			}
 			let letters = PhoneNumberLetterPair[digits[index]];
-			for (let i = 0; i < letters.length; i++) {
-				const ele = letters[i];
-				listAllCombin(combinLetter + ele, index + 1);
-			}
+			letters.forEach((letter) => {
+				listAllCombin(combinLetter + letter, index + 1);
+			});
 		}
 	},
 ];
