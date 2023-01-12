@@ -4,22 +4,20 @@ module.exports = [
 	 * @return {boolean}
 	 */
 	function isValid(s) {
+		let bracketPairs = {
+			"(": ")",
+			"[": "]",
+			"{": "}",
+		};
+		let leftBrackets = Object.keys(bracketPairs);
 		let stack = [];
-		let brackets = s.split("");
-		for (const bracket of brackets) {
-			if (["(", "{", "["].includes(bracket)) {
+		for (const bracket of Array.from(s)) {
+			if (leftBrackets.includes(bracket)) {
 				stack.push(bracket);
 				continue;
 			}
-			if ([")", "}", "]"].includes(bracket)) {
-				let beforeBracket = stack.pop();
-				if (
-					(bracket === ")" && beforeBracket !== "(") ||
-					(bracket === "}" && beforeBracket !== "{") ||
-					(bracket === "]" && beforeBracket !== "[")
-				) {
-					return false;
-				}
+			if (bracketPairs[stack.pop()] !== bracket) {
+				return false;
 			}
 		}
 		return !stack.length;
