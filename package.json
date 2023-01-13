@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "rome": "rome check --apply-suggested . && rome format --write .",
+    "format": "rome check --apply-suggested . && rome format --write .",
     "test": "jest",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
@@ -23,7 +23,7 @@
   },
   "lint-staged": {
     "*.{ts,js}": [
-      "npm run rome"
+      "npm run format"
     ]
   }
 }
