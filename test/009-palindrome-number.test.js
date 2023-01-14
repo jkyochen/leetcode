@@ -1,4 +1,4 @@
-const fns = require("../src/009-palindrome-number");
+const fns = require(require(".")(__filename).sourcePath);
 
 describe("Palindrome Number", () => {
 	fns.forEach((fn) => {

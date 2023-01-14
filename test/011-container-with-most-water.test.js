@@ -1,4 +1,4 @@
-const fns = require("../src/011-container-with-most-water");
+const fns = require(require(".")(__filename).sourcePath);
 
 describe("Container With Most Water", () => {
 	fns.forEach((fn) => {

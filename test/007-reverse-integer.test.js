@@ -1,4 +1,4 @@
-const { reverse } = require("../src/007-reverse-integer");
+const { reverse } = require(require(".")(__filename).sourcePath);
 
 describe("Reverse Integer", () => {
 	it("321", () => {

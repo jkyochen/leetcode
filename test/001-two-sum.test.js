@@ -1,4 +1,4 @@
-const fns = require("../src/001-two-sum");
+const fns = require(require(".")(__filename).sourcePath);
 
 describe("Two Sum", () => {
 	fns.forEach((fn) => {

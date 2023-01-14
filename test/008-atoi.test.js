@@ -1,4 +1,4 @@
-const { myAtoi } = require("../src/008-atoi");
+const { myAtoi } = require(require(".")(__filename).sourcePath);
 
 describe("Atoi", () => {
 	it("42", () => {

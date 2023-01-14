@@ -1,6 +1,4 @@
-const {
-	findMedianSortedArrays,
-} = require("../src/004-median-of-two-sorted-arrays");
+const { findMedianSortedArrays } = require(require(".")(__filename).sourcePath);
 
 describe("Median of Two Sorted Arrays", () => {
 	it("2.00000", () => {

@@ -1,4 +1,5 @@
-const { addTwoNumbers, createListNode } = require("../src/002-add-two-numbers");
+const { addTwoNumbers, createListNode } = require(require(".")(__filename)
+	.sourcePath);
 
 describe("Add Two Numbers", () => {
 	it("[7, 0, 8]", () => {
