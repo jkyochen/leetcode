@@ -1,4 +1,27 @@
+/**
+ * Definition for singly-linked list.
+ */
+function ListNode(val, next) {
+	this.val = val === undefined ? 0 : val;
+	this.next = next === undefined ? null : next;
+}
+
+/**
+ * @param {number[]} eles
+ * @return {ListNode}
+ */
+function createListNode(eles) {
+	eles = eles.reverse();
+	let nextNode;
+	for (const ele of eles) {
+		nextNode = new ListNode(ele, nextNode);
+	}
+	return nextNode;
+}
+
 module.exports = {
+	ListNode,
+	createListNode,
 	RomansNumberPair: {
 		I: 1,
 		V: 5,
