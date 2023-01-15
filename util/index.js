@@ -12,7 +12,7 @@ function ListNode(val, next) {
  */
 function createListNode(eles) {
 	eles = eles.reverse();
-	let nextNode;
+	let nextNode = null;
 	for (const ele of eles) {
 		nextNode = new ListNode(ele, nextNode);
 	}
