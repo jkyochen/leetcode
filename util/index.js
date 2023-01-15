@@ -19,9 +19,23 @@ function createListNode(eles) {
 	return nextNode;
 }
 
+/**
+ * @param {ListNode} node
+ * @return {Array}
+ */
+function convertLinkedListToArray(node) {
+	let v = [];
+	while (node !== null) {
+		v.push(node.val);
+		node = node.next;
+	}
+	return v;
+}
+
 module.exports = {
 	ListNode,
 	createListNode,
+	convertLinkedListToArray,
 	RomansNumberPair: {
 		I: 1,
 		V: 5,
