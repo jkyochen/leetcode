@@ -1,5 +1,8 @@
 /**
  * Definition for singly-linked list.
+ * @param {number} val
+ * @param {ListNode} next
+ * @return {void}
  */
 function ListNode(val, next) {
 	this.val = val === undefined ? 0 : val;
