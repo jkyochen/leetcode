@@ -48,4 +48,36 @@ module.exports = [
 
 		return true;
 	},
+	/**
+	 * @param {character[][]} board
+	 * @return {boolean}
+	 */
+	function isValidSudoku(board) {
+		// [[]]
+		let rows = new Array(9).fill(0).map(() => new Array(9));
+		// [[]]
+		let columns = new Array(9).fill(0).map(() => new Array(9));
+		// [[[]]]
+		let subboxs = new Array(9)
+			.fill(0)
+			.map(() => new Array(9).fill(0).map(() => new Array(9)));
+		for (let i = 0; i < 9; i++) {
+			for (let j = 0; j < 9; j++) {
+				const ele = board[i][j];
+				if (ele === ".") {
+					continue;
+				}
+
+				let x = Math.floor(i / 3);
+				let y = Math.floor(j / 3);
+				if (rows[i][ele] || columns[j][ele] || subboxs[x][y][ele]) {
+					return false;
+				}
+				rows[i][ele] = 1;
+				columns[j][ele] = 1;
+				subboxs[x][y][ele] = 1;
+			}
+		}
+		return true;
+	},
 ];
