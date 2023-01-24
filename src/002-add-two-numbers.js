@@ -1,44 +1,41 @@
-const { ListNode, createListNode } = require("../util");
+const { ListNode } = require("../util");
 
 /**
- * @param {ListNode} node1
- * @param {ListNode} node2
+ * @param {ListNode} l1
+ * @param {ListNode} l2
  * @return {ListNode}
  */
-function addTwoNumbers(node1, node2) {
-	let result = [];
-	let existCarry = false;
-	while (node1 || node2) {
-		let node1Value = 0;
-		let node2Value = 0;
-		if (node1) {
-			node1Value = node1.val;
-			node1 = node1.next;
-		}
-		if (node2) {
-			node2Value = node2.val;
-			node2 = node2.next;
-		}
-
-		let sum = node1Value + node2Value;
-		if (existCarry) {
-			sum += 1;
+function addTwoNumbers(l1, l2) {
+	let isExistCarry = false;
+	let curNode1 = l1;
+	let curNode2 = l2;
+	while (curNode1 && curNode2) {
+		let sum = curNode1.val + curNode2.val;
+		if (isExistCarry) {
+			sum++;
 		}
 		if (sum < 10) {
-			result.push(sum);
-			existCarry = false;
+			isExistCarry = false;
+			curNode2.val = sum;
 		} else {
-			result.push(sum % 10);
-			existCarry = true;
+			isExistCarry = true;
+			curNode2.val = sum % 10;
 		}
+		if (curNode1.next && !curNode2.next) {
+			curNode2.next = new ListNode(0);
+		}
+		if (!curNode1.next && curNode2.next) {
+			curNode1.next = new ListNode(0);
+		}
+		if (!(curNode1.next || curNode2.next) && isExistCarry) {
+			curNode2.next = new ListNode(1);
+		}
+		curNode1 = curNode1.next;
+		curNode2 = curNode2.next;
 	}
-	if (existCarry) {
-		result.push(1);
-	}
-	return createListNode(result);
+	return l2;
 }
 
 module.exports = {
-	createListNode,
 	addTwoNumbers,
 };

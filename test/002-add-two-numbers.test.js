@@ -22,4 +22,12 @@ describe("Add Two Numbers", () => {
 		);
 		expect(convertLinkedListToArray(res)).toEqual([8, 9, 9, 9, 0, 0, 0, 1]);
 	});
+
+	it("[7, 0, 4, 0, 1]", () => {
+		let res = addTwoNumbers(
+			createListNode([2, 4, 9]),
+			createListNode([5, 6, 4, 9]),
+		);
+		expect(convertLinkedListToArray(res)).toEqual([7, 0, 4, 0, 1]);
+	});
 });
