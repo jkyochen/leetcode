@@ -1,4 +1,11 @@
 /**
+ * @typedef ListNode
+ * @type {object}
+ * @property {number} val - value.
+ * @property {(ListNode|null)} next - next node.
+ */
+
+/**
  * Definition for singly-linked list.
  * @param {number} val
  * @param {ListNode} next
