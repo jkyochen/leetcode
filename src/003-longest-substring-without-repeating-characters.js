@@ -52,4 +52,20 @@ module.exports = [
 		}
 		return maxSize;
 	},
+	/**
+	 * @param {string} s
+	 * @return {number}
+	 */
+	function lengthOfLongestSubstring3(s) {
+		let maxSize = 0;
+		let chars = new Array(128).fill(-1);
+		let start = 0;
+		for (let end = 0; end < s.length; end++) {
+			let asci = s[end].charCodeAt();
+			start = Math.max(start, chars[asci] + 1);
+			maxSize = Math.max(maxSize, end - start + 1);
+			chars[asci] = end;
+		}
+		return maxSize;
+	},
 ];
