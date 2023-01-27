@@ -6,6 +6,10 @@ fns.forEach((fn) => {
 			expect(fn("121")).toEqual(true);
 		});
 
+		it("1221", () => {
+			expect(fn("1221")).toEqual(true);
+		});
+
 		it("-121", () => {
 			expect(fn("-121")).toEqual(false);
 		});
