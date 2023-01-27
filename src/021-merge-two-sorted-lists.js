@@ -59,33 +59,40 @@ module.exports = [
 	 * @return {ListNode}
 	 */
 	function mergeTwoLists2(list1, list2) {
-		let head = null;
-		let lasEle = null;
-		while (list1 !== null || list2 !== null) {
-			if (list2 === null || (list1 !== null && list1.val <= list2.val)) {
-				if (head) {
-					lasEle.next = new ListNode(list1.val);
-				} else {
-					head = new ListNode(list1.val);
-					lasEle = head;
-				}
-				if (lasEle.next) {
-					lasEle = lasEle.next;
-				}
+		let preHead = new ListNode(0);
+		let lastNode = preHead;
+		while (list1 || list2) {
+			if (!list2 || (list1 && list1.val <= list2.val)) {
+				lastNode.next = new ListNode(list1.val);
+				lastNode = lastNode.next;
 				list1 = list1.next;
 				continue;
 			}
-			if (head) {
-				lasEle.next = new ListNode(list2.val);
-			} else {
-				head = new ListNode(list2.val);
-				lasEle = head;
-			}
-			if (lasEle.next) {
-				lasEle = lasEle.next;
-			}
+			lastNode.next = new ListNode(list2.val);
+			lastNode = lastNode.next;
 			list2 = list2.next;
 		}
-		return head;
+		return preHead.next;
+	},
+	/**
+	 * @param {ListNode} list1
+	 * @param {ListNode} list2
+	 * @return {ListNode}
+	 */
+	function mergeTwoLists3(list1, list2) {
+		let preHead = new ListNode(0);
+		let lastNode = preHead;
+		while (list1 && list2) {
+			if (list1.val <= list2.val) {
+				lastNode.next = new ListNode(list1.val);
+				list1 = list1.next;
+			} else {
+				lastNode.next = new ListNode(list2.val);
+				list2 = list2.next;
+			}
+			lastNode = lastNode.next;
+		}
+		lastNode.next = list1 === null ? list2 : list1;
+		return preHead.next;
 	},
 ];
