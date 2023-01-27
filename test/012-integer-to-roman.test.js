@@ -1,19 +1,21 @@
-const { intToRoman } = require(require(".")(__filename).sourcePath);
+const fns = require(require(".")(__filename).sourcePath);
 
-describe("Integer to Roman", () => {
-	it("3", () => {
-		expect(intToRoman(3)).toEqual("III");
-	});
+fns.forEach((fn) => {
+	describe(fn.name, () => {
+		it("3", () => {
+			expect(fn(3)).toEqual("III");
+		});
 
-	it("4", () => {
-		expect(intToRoman(4)).toEqual("IV");
-	});
+		it("4", () => {
+			expect(fn(4)).toEqual("IV");
+		});
 
-	it("58", () => {
-		expect(intToRoman(58)).toEqual("LVIII");
-	});
+		it("58", () => {
+			expect(fn(58)).toEqual("LVIII");
+		});
 
-	it("1994", () => {
-		expect(intToRoman(1994)).toEqual("MCMXCIV");
+		it("1994", () => {
+			expect(fn(1994)).toEqual("MCMXCIV");
+		});
 	});
 });
