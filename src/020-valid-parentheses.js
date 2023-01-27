@@ -9,10 +9,9 @@ module.exports = [
 			"[": "]",
 			"{": "}",
 		};
-		let leftBrackets = Object.keys(bracketPairs);
 		let stack = [];
 		for (const bracket of Array.from(s)) {
-			if (leftBrackets.includes(bracket)) {
+			if (bracketPairs[bracket]) {
 				stack.push(bracket);
 				continue;
 			}
