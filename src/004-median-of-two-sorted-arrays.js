@@ -7,17 +7,17 @@ module.exports = [
 	function findMedianSortedArrays(nums1, nums2) {
 		let numsLen = nums1.length + nums2.length;
 		let midLen = Math.ceil(numsLen / 2);
-		let findMid = makeFindMid(nums1, nums2);
+		let findNextOrderNum = makeFindNextOrderNum(nums1, nums2);
 		for (let i = 0; i < midLen - 1; i++) {
-			findMid();
+			findNextOrderNum();
 		}
 		let isDoubleMid = numsLen % 2 === 0;
 		if (isDoubleMid) {
-			return (findMid() + findMid()) / 2;
+			return (findNextOrderNum() + findNextOrderNum()) / 2;
 		}
-		return findMid();
+		return findNextOrderNum();
 
-		function makeFindMid(nums1, nums2) {
+		function makeFindNextOrderNum(nums1, nums2) {
 			let j1 = 0;
 			let j2 = 0;
 			return () => {
