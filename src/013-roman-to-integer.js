@@ -32,4 +32,19 @@ module.exports = [
 				return acc + curMaxValue;
 			}, 0);
 	},
+	/**
+	 * @param {string} s
+	 * @return {number}
+	 */
+	function romanToInt2(s) {
+		return s.split("").reduce((acc, cur, i) => {
+			if (
+				i !== s.length &&
+				RomansNumberPair[cur] < RomansNumberPair[s[i + 1]]
+			) {
+				return acc - RomansNumberPair[cur];
+			}
+			return acc + RomansNumberPair[cur];
+		}, 0);
+	},
 ];
