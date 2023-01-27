@@ -15,21 +15,21 @@ module.exports.findMedianSortedArrays = function (nums1, nums2) {
 		return (findMid() + findMid()) / 2;
 	}
 	return findMid();
-};
 
-function makeFindMid(nums1, nums2) {
-	let j1 = 0;
-	let j2 = 0;
-	return () => {
-		if (j1 > nums1.length - 1 && j2 > nums2.length - 1) {
-			return 0;
-		}
-		if (
-			j1 <= nums1.length - 1 &&
-			(j2 > nums2.length - 1 || nums1[j1] <= nums2[j2])
-		) {
-			return nums1[j1++];
-		}
-		return nums2[j2++];
-	};
-}
+	function makeFindMid(nums1, nums2) {
+		let j1 = 0;
+		let j2 = 0;
+		return () => {
+			if (j1 > nums1.length - 1 && j2 > nums2.length - 1) {
+				return 0;
+			}
+			if (
+				j1 <= nums1.length - 1 &&
+				(j2 > nums2.length - 1 || nums1[j1] <= nums2[j2])
+			) {
+				return nums1[j1++];
+			}
+			return nums2[j2++];
+		};
+	}
+};
