@@ -30,4 +30,33 @@ module.exports = [
 		}
 		return triplets;
 	},
+	/**
+	 * @param {number[]} nums
+	 * @return {number[][]}
+	 */
+	function threeSum1(nums) {
+		let triplets = [];
+		nums = nums.sort((a, b) => a - b);
+		for (let first = 0; first < nums.length; first++) {
+			if (first !== 0 && nums[first] === nums[first - 1]) {
+				continue;
+			}
+			let third = nums.length - 1;
+			for (let second = first + 1; second < nums.length; second++) {
+				if (second !== first + 1 && nums[second] === nums[second - 1]) {
+					continue;
+				}
+				while (second < third && nums[first] + nums[second] + nums[third] > 0) {
+					third--;
+				}
+				if (second === third) {
+					break;
+				}
+				if (nums[first] + nums[second] + nums[third] === 0) {
+					triplets.push([nums[first], nums[second], nums[third]]);
+				}
+			}
+		}
+		return triplets;
+	},
 ];
