@@ -9,11 +9,15 @@ module.exports = [
 		let preNode = new ListNode(0, head);
 		let curNode = preNode;
 		while (curNode.next?.next) {
-			let firstNode = curNode.next;
-			curNode.next = curNode.next.next;
-			firstNode.next = curNode.next.next;
-			curNode.next.next = firstNode;
-			curNode = curNode.next.next;
+			let node1 = curNode.next;
+			let node2 = curNode.next.next;
+			// move second node to first node
+			curNode.next = node2;
+			// move after seconde node to after first node
+			node1.next = node2.next;
+			// move first node to second node
+			node2.next = node1;
+			curNode = node1;
 		}
 		return preNode.next;
 	},
