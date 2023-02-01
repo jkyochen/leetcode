@@ -17,4 +17,17 @@ module.exports = [
 		}
 		return preNode.next;
 	},
+	/**
+	 * @param {ListNode} head
+	 * @return {ListNode}
+	 */
+	function swapPairs1(head) {
+		if (!head?.next) {
+			return head;
+		}
+		let newHead = head.next;
+		head.next = swapPairs1(newHead.next);
+		newHead.next = head;
+		return newHead;
+	},
 ];
