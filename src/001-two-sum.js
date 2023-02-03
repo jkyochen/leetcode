@@ -26,14 +26,13 @@ module.exports = [
 		if (nums.length < 2) {
 			throw new Error("nums length can't smaller than 2");
 		}
-		// or use Map
-		const numIndexObj = {};
+		const numIndex = new Map();
 		for (let i = 0; i < nums.length; i++) {
 			const remainValue = target - nums[i];
-			if (numIndexObj[remainValue] !== undefined) {
-				return [numIndexObj[remainValue], i];
+			if (numIndex.has(remainValue)) {
+				return [numIndex.get(remainValue), i];
 			}
-			numIndexObj[nums[i]] = i;
+			numIndex.set(nums[i], i);
 		}
 		throw new Error("can't find result");
 	},
