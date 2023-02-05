@@ -16,11 +16,14 @@ module.exports = [
 				charCount++;
 				continue;
 			}
-			genResult += String(charCount) + beforeChar;
+			genResult += concatToString(charCount, beforeChar);
 			beforeChar = item;
 			charCount = 1;
 		}
-		return genResult + String(charCount) + beforeChar;
+		return genResult + concatToString(charCount, beforeChar);
+		function concatToString(count, char) {
+			return String(count) + char;
+		}
 	},
 	/**
 	 * @param {number} n
@@ -38,14 +41,17 @@ module.exports = [
 					charCount++;
 					continue;
 				}
-				newGenResult += String(charCount) + beforeChar;
+				newGenResult += concatToString(charCount, beforeChar);
 				beforeChar = item;
 				charCount = 1;
 			}
-			genResult = newGenResult + String(charCount) + beforeChar;
+			genResult = newGenResult + concatToString(charCount, beforeChar);
 			i++;
 		}
 		return genResult;
+		function concatToString(count, char) {
+			return String(count) + char;
+		}
 	},
 	/**
 	 * @param {number} n
