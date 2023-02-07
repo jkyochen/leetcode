@@ -6,9 +6,9 @@ module.exports = [
 	 */
 	function combinationSum(candidates, target) {
 		let result = [];
-		bfs(target, [], 0);
+		backtrack(target, [], 0);
 		return result;
-		function bfs(remainTarget, combinedEles, idx) {
+		function backtrack(remainTarget, combinedEles, idx) {
 			if (remainTarget < 0) {
 				return;
 			}
@@ -17,7 +17,7 @@ module.exports = [
 				return;
 			}
 			for (let i = idx; i < candidates.length; i++) {
-				bfs(
+				backtrack(
 					remainTarget - candidates[i],
 					combinedEles.concat(candidates[i]),
 					i,
@@ -33,9 +33,9 @@ module.exports = [
 	function combinationSum1(candidates, target) {
 		let result = [];
 		candidates.sort((a, b) => a - b);
-		dfs(target, [], 0);
+		backtrack(target, [], 0);
 		return result;
-		function dfs(remainTarget, combinedEles, idx) {
+		function backtrack(remainTarget, combinedEles, idx) {
 			if (idx === candidates.length) {
 				return;
 			}
@@ -43,9 +43,9 @@ module.exports = [
 				result.push(combinedEles);
 				return;
 			}
-			dfs(remainTarget, combinedEles, idx + 1);
+			backtrack(remainTarget, combinedEles, idx + 1);
 			if (remainTarget - candidates[idx] >= 0) {
-				dfs(
+				backtrack(
 					remainTarget - candidates[idx],
 					combinedEles.concat(candidates[idx]),
 					idx,
