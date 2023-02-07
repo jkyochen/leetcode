@@ -53,4 +53,35 @@ module.exports = [
 			}
 		}
 	},
+	/**
+	 * @param {number[]} candidates
+	 * @param {number} target
+	 * @return {number[][]}
+	 */
+	function combinationSum2(candidates, target) {
+		let result = [];
+		let combinedEles = [];
+		candidates.sort((a, b) => a - b);
+		backtrack(0, 0);
+		return result;
+		function backtrack(sum, idx) {
+			if (sum > target) {
+				return;
+			}
+			if (sum === target) {
+				result.push([...combinedEles]);
+				return;
+			}
+			for (let i = idx; i < candidates.length; i++) {
+				let ele = candidates[i];
+				if (sum + ele > target) {
+					continue;
+				}
+				combinedEles.push(ele);
+				backtrack(sum + ele, i);
+				// clear
+				combinedEles.pop();
+			}
+		}
+	},
 ];
