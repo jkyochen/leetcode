@@ -13,19 +13,32 @@ module.exports = [
 	 * @return {number}
 	 */
 	function search1(nums, target) {
-		const isInAfter = nums[nums.length - 1] >= target;
 		for (let i = 0, j = nums.length - 1; i <= j; ) {
 			let mid = Math.floor((i + j) / 2);
 			if (nums[mid] === target) {
 				return mid;
 			}
-			if (
-				nums[mid] < target ||
-				(isInAfter && nums[mid] > nums[nums.length - 1])
-			) {
-				i = mid + 1;
+
+			if (nums[i] <= nums[j]) {
+				if (nums[mid] < target) {
+					i = mid + 1;
+				} else {
+					j = mid - 1;
+				}
 			} else {
-				j = mid - 1;
+				if (nums[mid] < nums[0]) {
+					if (target < nums[0] && nums[mid] < target) {
+						i = mid + 1;
+					} else {
+						j = mid - 1;
+					}
+				} else {
+					if (target < nums[0] || nums[mid] < target) {
+						i = mid + 1;
+					} else {
+						j = mid - 1;
+					}
+				}
 			}
 		}
 		return -1;
