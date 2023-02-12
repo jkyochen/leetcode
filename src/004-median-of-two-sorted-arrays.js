@@ -34,4 +34,19 @@ module.exports = [
 			};
 		}
 	},
+	/**
+	 * @param {number[]} nums1
+	 * @param {number[]} nums2
+	 * @return {number}
+	 */
+	function findMedianSortedArrays1(nums1, nums2) {
+		let nums = nums1.concat(nums2).sort((a, b) => a - b);
+		let i = 0;
+		let j = nums.length - 1;
+		let mid = Math.floor((i + j) / 2);
+		if (nums.length % 2 === 1) {
+			return nums[mid];
+		}
+		return (nums[mid] + nums[mid + 1]) / 2;
+	},
 ];
