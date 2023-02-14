@@ -24,10 +24,10 @@ func TestLengthOfLastWord(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		for i := 0; i < len(Funcs); i++ {
-			result := Funcs[i](tc.s)
+		for _, v := range Funcs {
+			result := v(tc.s)
 			if result != tc.want {
-				t.Fatalf(`Test func:"%s" case:"%s" failed — Expected %d, got %d`, GetFunctionName(Funcs[i]), tc.s, tc.want, result)
+				t.Fatalf(`Test func:"%s" case:"%s" failed — Expected %d, got %d`, GetFunctionName(v), tc.s, tc.want, result)
 			}
 		}
 	}
