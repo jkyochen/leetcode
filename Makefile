@@ -5,4 +5,5 @@ fmt:
 
 .PHONY: test
 test:
-	go test ./...
+	make fmt
+	go test ./... -v
