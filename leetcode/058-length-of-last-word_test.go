@@ -5,22 +5,28 @@ import (
 )
 
 func TestLengthOfLastWord(t *testing.T) {
-	result := lengthOfLastWord("Hello World")
-	if result != 5 {
-		t.Fatal("World's length is 5")
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{
+			s:    "Hello World",
+			want: 5,
+		},
+		{
+			s:    "   fly me   to   the moon  ",
+			want: 4,
+		},
+		{
+			s:    "luffy is still joyboy",
+			want: 6,
+		},
 	}
-}
 
-func TestLengthOfLastWord1(t *testing.T) {
-	result := lengthOfLastWord("   fly me   to   the moon  ")
-	if result != 4 {
-		t.Fatal("moon's length is 4")
-	}
-}
-
-func TestLengthOfLastWord2(t *testing.T) {
-	result := lengthOfLastWord("luffy is still joyboy")
-	if result != 6 {
-		t.Fatal("joyboy's length is 6")
+	for i, tc := range tests {
+		result := lengthOfLastWord(tc.s)
+		if result != tc.want {
+			t.Fatalf("Test %d failed — Expected %d, got %d", i+1, tc.want, result)
+		}
 	}
 }
