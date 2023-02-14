@@ -21,6 +21,10 @@ func TestLengthOfLastWord(t *testing.T) {
 			s:    "luffy is still joyboy",
 			want: 6,
 		},
+		{
+			s:    "",
+			want: 0,
+		},
 	}
 
 	for _, tc := range tests {
