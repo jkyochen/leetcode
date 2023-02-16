@@ -2,6 +2,7 @@ package leetcode
 
 var plusOnes = []func(digits []int) []int{
 	plusOne,
+	plusOne1,
 }
 
 func plusOne(digits []int) []int {

@@ -29,7 +29,7 @@ func TestPlusOne(t *testing.T) {
 
 	for _, tc := range tests {
 		for _, v := range plusOnes {
-			result := v(tc.s)
+			result := v(append([]int{}, tc.s...))
 			if !Equal(result, tc.want) {
 				t.Fatalf(`Test func:"%s" case:"%d" failed — Expected %d, got %d`, GetFunctionName(v), tc.s, tc.want, result)
 			}
