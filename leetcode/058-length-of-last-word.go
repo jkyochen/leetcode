@@ -2,7 +2,7 @@ package leetcode
 
 import "strings"
 
-var Funcs = []func(s string) int{
+var lengthOfLastWords = []func(s string) int{
 	lengthOfLastWord1,
 	lengthOfLastWord2,
 	lengthOfLastWord3,

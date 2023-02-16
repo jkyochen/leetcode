@@ -28,7 +28,7 @@ func TestLengthOfLastWord(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		for _, v := range Funcs {
+		for _, v := range lengthOfLastWords {
 			result := v(tc.s)
 			if result != tc.want {
 				t.Fatalf(`Test func:"%s" case:"%s" failed — Expected %d, got %d`, GetFunctionName(v), tc.s, tc.want, result)
