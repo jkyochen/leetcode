@@ -31,7 +31,7 @@ func TestPlusOne(t *testing.T) {
 		for _, v := range plusOnes {
 			result := v(append([]int{}, tc.s...))
 			if !Equal(result, tc.want) {
-				t.Fatalf(`Test func:"%s" case:"%d" failed — Expected %d, got %d`, GetFunctionName(v), tc.s, tc.want, result)
+				t.Fatalf(`Test func:"%s" case:"%v" failed — Expected %v, got %v`, GetFunctionName(v), tc.s, tc.want, result)
 			}
 		}
 	}
