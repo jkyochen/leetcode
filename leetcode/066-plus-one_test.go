@@ -6,23 +6,23 @@ import (
 
 func TestPlusOne(t *testing.T) {
 	tests := []struct {
-		args    []int
+		args     []int
 		expected []int
 	}{
 		{
-			args:    []int{1, 2, 3},
+			args:     []int{1, 2, 3},
 			expected: []int{1, 2, 4},
 		},
 		{
-			args:    []int{4, 3, 2, 1},
+			args:     []int{4, 3, 2, 1},
 			expected: []int{4, 3, 2, 2},
 		},
 		{
-			args:    []int{0},
+			args:     []int{0},
 			expected: []int{1},
 		},
 		{
-			args:    []int{9, 9},
+			args:     []int{9, 9},
 			expected: []int{1, 0, 0},
 		},
 	}

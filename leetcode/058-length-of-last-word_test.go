@@ -6,23 +6,23 @@ import (
 
 func TestLengthOfLastWord(t *testing.T) {
 	tests := []struct {
-		args    string
+		args     string
 		expected int
 	}{
 		{
-			args:    "Hello World",
+			args:     "Hello World",
 			expected: 5,
 		},
 		{
-			args:    "   fly me   to   the moon  ",
+			args:     "   fly me   to   the moon  ",
 			expected: 4,
 		},
 		{
-			args:    "luffy is still joyboy",
+			args:     "luffy is still joyboy",
 			expected: 6,
 		},
 		{
-			args:    "",
+			args:     "",
 			expected: 0,
 		},
 	}
