@@ -1,11 +1,17 @@
 package leetcode
 
 import (
+	"fmt"
+	"math/big"
+	"strconv"
 	"strings"
 )
 
 var addBinarys = []func(a string, b string) string{
 	addBinary,
+	addBinary1,
+	addBinary2,
+	addBinary3,
 }
 
 func addBinary(a string, b string) string {
@@ -56,4 +62,65 @@ func addBinary(a string, b string) string {
 	}
 
 	return strings.Join(s, "")
+}
+
+func addBinary1(a string, b string) string {
+	result := ""
+	carry := 0
+	lenA, lenB := len(a), len(b)
+	n := max(lenA, lenB)
+
+	for i := 0; i < n; i++ {
+		if i < lenA {
+			carry += int(a[lenA-1-i] - '0')
+		}
+		if i < lenB {
+			carry += int(b[lenB-1-i] - '0')
+		}
+		result = strconv.Itoa(carry%2) + result
+		carry /= 2
+	}
+	if carry > 0 {
+		result = "1" + result
+	}
+	return result
+}
+
+func max(a int, b int) int {
+	if a >= b {
+		return a
+	}
+	return b
+}
+
+func addBinary2(a string, b string) string {
+	aBig, ok1 := new(big.Int).SetString(a, 2)
+	bBig, ok2 := new(big.Int).SetString(b, 2)
+	if !ok1 || !ok2 {
+		panic("SetString: error")
+	}
+	return fmt.Sprintf("%b", new(big.Int).Add(aBig, bBig))
+}
+
+func addBinary3(a string, b string) string {
+	x := new(big.Int)
+	x.SetString(a, 2)
+
+	y := new(big.Int)
+	y.SetString(b, 2)
+
+	zero := big.NewInt(0)
+
+	for y.Cmp(zero) != 0 {
+		answer := new(big.Int)
+		answer.Xor(x, y)
+
+		carry := new(big.Int)
+		carry.And(x, y)
+		carry.Lsh(carry, 1)
+
+		x, y = answer, carry
+	}
+
+	return x.Text(2)
 }
