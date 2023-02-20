@@ -13,8 +13,8 @@ func mySqrt(x int) int {
 			return mid
 		}
 
-		b1, b2 := mid*mid < x, (mid+1)*(mid+1) > x
-		if b1 && b2 {
+		b1 := mid*mid < x
+		if b1 && (mid+1)*(mid+1) > x {
 			return mid
 		}
 
