@@ -38,9 +38,10 @@ func TestClimbStairs1(t *testing.T) {
 	for _, tc := range tests {
 		for _, v := range merges {
 			newTc := tc
+			newTc.args1 = append([]int{}, tc.args1...)
 			v(newTc.args1, newTc.args2, newTc.args3, newTc.args4)
 			if !Equal(newTc.args1, newTc.expected) {
-				t.Fatalf(`Test func:"%s" case:"%v" failed — Expected %v, got %v`, GetFunctionName(v), tc.args1, tc.expected, tc.args1)
+				t.Fatalf(`Test func:"%s" case:"%v" failed — Expected %v, got %v`, GetFunctionName(v), tc.args1, tc.expected, newTc.args1)
 			}
 		}
 	}
