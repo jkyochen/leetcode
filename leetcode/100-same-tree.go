@@ -2,6 +2,7 @@ package leetcode
 
 var isSameTrees = []func(p *TreeNode, q *TreeNode) bool{
 	isSameTree,
+	isSameTree1,
 }
 
 func isSameTree(p *TreeNode, q *TreeNode) bool {
@@ -27,4 +28,17 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	}
 	inorder(p, q)
 	return isSame
+}
+
+func isSameTree1(p *TreeNode, q *TreeNode) bool {
+	if p == nil && q == nil {
+		return true
+	}
+	if p == nil || q == nil {
+		return false
+	}
+	if p.Val != q.Val {
+		return false
+	}
+	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 }
