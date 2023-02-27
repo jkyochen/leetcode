@@ -35,3 +35,8 @@ func inorderTraversal1(root *TreeNode) []int {
 	}
 	return result
 }
+
+// TODO Morris
+func inorderTraversal2(root *TreeNode) []int {
+	return nil
+}
