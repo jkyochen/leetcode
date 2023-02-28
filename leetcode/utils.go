@@ -22,3 +22,10 @@ func Equal(a, b []int) bool {
 	}
 	return true
 }
+
+func Max(a int, b int) int {
+	if a >= b {
+		return a
+	}
+	return b
+}

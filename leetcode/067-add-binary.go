@@ -68,7 +68,7 @@ func addBinary1(a string, b string) string {
 	result := ""
 	carry := 0
 	lenA, lenB := len(a), len(b)
-	n := max(lenA, lenB)
+	n := Max(lenA, lenB)
 
 	for i := 0; i < n; i++ {
 		if i < lenA {
@@ -84,13 +84,6 @@ func addBinary1(a string, b string) string {
 		result = "1" + result
 	}
 	return result
-}
-
-func max(a int, b int) int {
-	if a >= b {
-		return a
-	}
-	return b
 }
 
 func addBinary2(a string, b string) string {
