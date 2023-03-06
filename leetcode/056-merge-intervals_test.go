@@ -17,6 +17,10 @@ func TestMergeIntervals(t *testing.T) {
 			args:     [][]int{{1, 4}, {4, 5}},
 			expected: [][]int{{1, 5}},
 		},
+		{
+			args:     [][]int{{1, 4}, {0, 4}},
+			expected: [][]int{{0, 4}},
+		},
 	}
 
 	for _, tc := range tests {
