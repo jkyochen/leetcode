@@ -12,11 +12,10 @@ func mergeIntervals(intervals [][]int) [][]int {
 	})
 	merged := [][]int{intervals[0]}
 	for i := 1; i < len(intervals); i++ {
-		val := intervals[i]
-		mInterval := merged[len(merged)-1]
-		mEnd := mInterval[len(mInterval)-1]
+		mVal, val := merged[len(merged)-1], intervals[i]
+		mEnd := mVal[len(mVal)-1]
 		if val[0] <= mEnd || val[0]+1 == mEnd {
-			mInterval[len(mInterval)-1] = Max(mInterval[len(mInterval)-1], val[len(val)-1])
+			mVal[len(mVal)-1] = Max(mVal[len(mVal)-1], val[len(val)-1])
 		} else {
 			merged = append(merged, val)
 		}
