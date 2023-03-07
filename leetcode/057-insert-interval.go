@@ -9,10 +9,10 @@ var insertIntervals = []func(intervals [][]int, newInterval []int) [][]int{
 
 func insertInterval(intervals [][]int, newInterval []int) [][]int {
 	inserted := [][]int{}
-	for i := 0; i < len(intervals); i++ {
-		L, R := intervals[i][0], intervals[i][1]
+	for _, interval := range intervals {
+		L, R := interval[0], interval[1]
 		if newInterval[1] < L || newInterval[0] > R {
-			inserted = append(inserted, intervals[i])
+			inserted = append(inserted, interval)
 		} else {
 			newInterval = []int{Min(L, newInterval[0]), Max(R, newInterval[1])}
 		}
