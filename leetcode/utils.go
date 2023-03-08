@@ -48,3 +48,12 @@ func Min(a int, b int) int {
 	}
 	return b
 }
+
+func Contains(src []int, target int) bool {
+	for _, v := range src {
+		if v == target {
+			return true
+		}
+	}
+	return false
+}
