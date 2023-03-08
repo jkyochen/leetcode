@@ -25,6 +25,16 @@ func TestGetPermutation(t *testing.T) {
 			args2:    1,
 			expected: "123",
 		},
+		{
+			args:     9,
+			args2:    206490,
+			expected: "619754832",
+		},
+		{
+			args:     1,
+			args2:    1,
+			expected: "1",
+		},
 	}
 
 	for _, tc := range tests {
