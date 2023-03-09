@@ -20,6 +20,11 @@ func TestUniquePaths(t *testing.T) {
 			args2:    2,
 			expected: 3,
 		},
+		{
+			args:     9,
+			args2:    11,
+			expected: 43758,
+		},
 	}
 
 	for _, tc := range tests {
