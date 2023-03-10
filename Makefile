@@ -6,4 +6,4 @@ fmt:
 .PHONY: test
 test:
 	make fmt
-	go test ./... -v
+	cd leetcode && ls | grep -E '.*$(flt).*|helper*' | xargs go test -v
