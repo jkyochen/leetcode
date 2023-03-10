@@ -1,4 +1,7 @@
 
+.PHONY: all
+all: go js
+
 .PHONY: go
 go:
 	cd go && make test $(filter-out $@,$(MAKECMDGOALS))
