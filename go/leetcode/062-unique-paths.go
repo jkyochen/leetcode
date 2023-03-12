@@ -1,11 +1,15 @@
 package leetcode
 
-import "fmt"
+import (
+	"fmt"
+	"math/big"
+)
 
 var uniquePathss = []func(m int, n int) int{
 	uniquePaths,
 	uniquePaths1,
 	uniquePaths2,
+	uniquePaths3,
 }
 
 func uniquePaths(m int, n int) int {
@@ -72,4 +76,9 @@ func uniquePaths2(m int, n int) int {
 	}
 
 	return dpTable[m-1][n-1]
+}
+
+// Combinatorics
+func uniquePaths3(m int, n int) int {
+	return int(new(big.Int).Binomial(int64(m+n-2), int64(n-1)).Int64())
 }
