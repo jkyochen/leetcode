@@ -5,6 +5,7 @@ import "fmt"
 var uniquePathss = []func(m int, n int) int{
 	uniquePaths,
 	uniquePaths1,
+	uniquePaths2,
 }
 
 func uniquePaths(m int, n int) int {
@@ -52,4 +53,23 @@ func uniquePaths1(m int, n int) int {
 		return xRecurCount + yRecurCount
 	}
 	return recursion(1, 1)
+}
+
+func uniquePaths2(m int, n int) int {
+	dpTable := make([][]int, m)
+	for i := 0; i < m; i++ {
+		dpTable[i] = make([]int, n)
+		dpTable[i][0] = 1
+	}
+	for j := 0; j < n; j++ {
+		dpTable[0][j] = 1
+	}
+
+	for i := 1; i < m; i++ {
+		for j := 1; j < n; j++ {
+			dpTable[i][j] = dpTable[i-1][j] + dpTable[i][j-1]
+		}
+	}
+
+	return dpTable[m-1][n-1]
 }
