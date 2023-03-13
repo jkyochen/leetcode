@@ -1,5 +1,11 @@
 # LeetCode
 
+## Install
+
+```sh
+make install
+```
+
 ## Run
 
 ```sh
