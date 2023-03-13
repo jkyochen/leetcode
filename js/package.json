@@ -9,7 +9,7 @@
   "scripts": {
     "format": "rome check --apply-suggested . && rome format --write .",
     "test": "jest",
-    "prepare": "husky install",
+    "prepare_todo": "husky install",
     "pre-commit": "lint-staged",
     "new": "node util/create.js",
     "updateMeta": "curl -o data/meta.json https://leetcode.com/api/problems/all/"
