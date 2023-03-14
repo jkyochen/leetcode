@@ -15,17 +15,13 @@ var uniquePathss = []func(m int, n int) int{
 func uniquePaths(m int, n int) int {
 	var recursion func(x int, y int) int
 	recursion = func(x int, y int) int {
+		if x > m || y > n {
+			return 0
+		}
 		if x == m && y == n {
 			return 1
 		}
-		xRecurCount, yRecurCount := 0, 0
-		if x < m {
-			xRecurCount = recursion(x+1, y)
-		}
-		if y < n {
-			yRecurCount = recursion(x, y+1)
-		}
-		return xRecurCount + yRecurCount
+		return recursion(x+1, y) + recursion(x, y+1)
 	}
 	return recursion(1, 1)
 }
@@ -41,18 +37,15 @@ func uniquePaths1(m int, n int) int {
 		if v, b := cache[formatKey(x, y)]; b {
 			return v
 		}
+		if x > m || y > n {
+			return 0
+		}
 		if x == m && y == n {
 			return 1
 		}
-		xRecurCount, yRecurCount := 0, 0
-		if x < m {
-			xRecurCount = recursion(x+1, y)
-			cache[formatKey(x+1, y)] = xRecurCount
-		}
-		if y < n {
-			yRecurCount = recursion(x, y+1)
-			cache[formatKey(x, y+1)] = yRecurCount
-		}
+		xRecurCount, yRecurCount := recursion(x+1, y), recursion(x, y+1)
+		cache[formatKey(x+1, y)] = xRecurCount
+		cache[formatKey(x, y+1)] = yRecurCount
 		return xRecurCount + yRecurCount
 	}
 	return recursion(1, 1)
