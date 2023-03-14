@@ -1,12 +1,12 @@
 # LeetCode
 
-## Install
+## Prepare Env
 
 ```sh
 make install
 ```
 
-## Run
+## Run Test
 
 ```sh
 # Run all golang answer
