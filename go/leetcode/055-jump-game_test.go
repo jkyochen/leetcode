@@ -9,26 +9,26 @@ func TestCanJump(t *testing.T) {
 		args     []int
 		expected bool
 	}{
-		// {
-		// 	args:     []int{2, 3, 1, 1, 4},
-		// 	expected: true,
-		// },
-		// {
-		// 	args:     []int{3, 2, 1, 0, 4},
-		// 	expected: false,
-		// },
-		// {
-		// 	args:     []int{2, 0, 0},
-		// 	expected: true,
-		// },
-		// {
-		// 	args:     []int{0},
-		// 	expected: true,
-		// },
-		// {
-		// 	args:     []int{2, 0},
-		// 	expected: true,
-		// },
+		{
+			args:     []int{2, 3, 1, 1, 4},
+			expected: true,
+		},
+		{
+			args:     []int{3, 2, 1, 0, 4},
+			expected: false,
+		},
+		{
+			args:     []int{2, 0, 0},
+			expected: true,
+		},
+		{
+			args:     []int{0},
+			expected: true,
+		},
+		{
+			args:     []int{2, 0},
+			expected: true,
+		},
 		{
 			args:     []int{1, 1, 1, 0},
 			expected: true,
