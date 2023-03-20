@@ -28,8 +28,7 @@ func uniquePaths(m int, n int) int {
 
 func uniquePaths1(m int, n int) int {
 	cache := make(map[string]int)
-	var formatKey func(x int, y int) string
-	formatKey = func(x, y int) string {
+	var formatKey = func(x, y int) string {
 		return fmt.Sprintf("x=%d,y=%d", x, y)
 	}
 	var recursion func(x int, y int) int
