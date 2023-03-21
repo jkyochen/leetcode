@@ -30,6 +30,16 @@ func TestSearchMatrix(t *testing.T) {
 			args1:    11,
 			expected: true,
 		},
+		{
+			args:     [][]int{{1, 1}},
+			args1:    2,
+			expected: false,
+		},
+		{
+			args:     [][]int{{1, 3}},
+			args1:    3,
+			expected: true,
+		},
 	}
 
 	for _, tc := range tests {
