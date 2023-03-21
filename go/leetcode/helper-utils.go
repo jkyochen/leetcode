@@ -57,3 +57,12 @@ func Contains(src []int, target int) bool {
 	}
 	return false
 }
+
+func CopyTwoDimensionalArrays(src [][]int) (target [][]int) {
+	target = make([][]int, len(src))
+	for i := 0; i < len(src); i++ {
+		target[i] = make([]int, len(src[i]))
+		copy(target[i], src[i])
+	}
+	return
+}

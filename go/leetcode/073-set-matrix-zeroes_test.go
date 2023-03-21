@@ -21,8 +21,8 @@ func TestSetZeroes(t *testing.T) {
 
 	for _, tc := range tests {
 		for _, v := range setZeroess {
-			v(tc.args)
-			result := tc.args
+			result := CopyTwoDimensionalArrays(tc.args)
+			v(result)
 			if !EqualArray(result, tc.expected) {
 				t.Fatalf(`Test func:"%s" case:"%v" failed — Expected %v, got %v`, GetFunctionName(v), tc.args, tc.expected, result)
 			}
