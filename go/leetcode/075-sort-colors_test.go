@@ -21,6 +21,10 @@ func TestSortColors(t *testing.T) {
 			args:     []int{1, 2, 0},
 			expected: []int{0, 1, 2},
 		},
+		{
+			args:     []int{2, 0},
+			expected: []int{0, 2},
+		},
 	}
 
 	for _, tc := range tests {
