@@ -51,3 +51,7 @@ func setZeroes1(matrix [][]int) {
 		}
 	}
 }
+
+// TODO 1. two marker variables
+
+// TODO 2. one marker variables
