@@ -7,7 +7,7 @@ var removeDuplicatess = []func(nums []int) int{
 func removeDuplicates(nums []int) int {
 	newLen := len(nums)
 	for i := 2; i < newLen; i++ {
-		if nums[i] != nums[i-1] || nums[i] != nums[i-2] {
+		if nums[i] != nums[i-2] {
 			continue
 		}
 
