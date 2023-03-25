@@ -21,8 +21,9 @@ func TestRemoveDuplicates(t *testing.T) {
 
 	for _, tc := range tests {
 		for _, v := range removeDuplicatess {
-			newLen := v(tc.args)
-			result := tc.args[:newLen]
+			newArgs := CopyArray(tc.args)
+			newLen := v(newArgs)
+			result := newArgs[:newLen]
 			if !Equal(result, tc.expected) {
 				t.Fatalf(`Test func:"%s" case:"%v" failed — Expected %v, got %v`, GetFunctionName(v), tc.args, tc.expected, result)
 			}
