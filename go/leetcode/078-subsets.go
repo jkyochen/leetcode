@@ -10,7 +10,8 @@ func subsets(nums []int) [][]int {
 	dfs = func(sub []int, start int) {
 		newSub := make([]int, len(sub))
 		copy(newSub, sub)
-		if len(sub) == len(nums) {
+
+		if len(newSub) == len(nums) {
 			result = append(result, newSub)
 			return
 		}
