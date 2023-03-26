@@ -6,7 +6,7 @@ var subsetss = []func(nums []int) [][]int{
 
 func subsets(nums []int) [][]int {
 	result := [][]int{}
-	var dfs func(sub []int, index int)
+	var dfs func(sub []int, start int)
 	dfs = func(sub []int, start int) {
 		newSub := make([]int, len(sub))
 		copy(newSub, sub)
