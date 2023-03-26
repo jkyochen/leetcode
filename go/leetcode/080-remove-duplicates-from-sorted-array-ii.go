@@ -33,8 +33,8 @@ func removeDuplicates1(nums []int) int {
 		return n
 	}
 
-	slow, fast := 2, 2
-	for ; fast < n; fast++ {
+	slow := 2
+	for fast := 2; fast < n; fast++ {
 		if nums[slow-2] != nums[fast] {
 			nums[slow] = nums[fast]
 			slow++
