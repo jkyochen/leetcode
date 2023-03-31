@@ -28,14 +28,20 @@ func numDecodings(s string) int {
 			total++
 			return
 		}
-		if nums[start] != 0 {
-			dfs(start + 1)
+		if nums[start] == 0 {
+			return
 		}
-		if start+1 < len(nums) && nums[start] != 0 {
-			v := nums[start]*10 + nums[start+1]
-			if v >= 1 && v <= 26 {
-				dfs(start + 2)
-			}
+
+		// pick one sum
+		dfs(start + 1)
+
+		// pick two num
+		if start+1 >= len(nums) {
+			return
+		}
+		v := nums[start]*10 + nums[start+1]
+		if v >= 1 && v <= 26 {
+			dfs(start + 2)
 		}
 	}
 	dfs(0)
