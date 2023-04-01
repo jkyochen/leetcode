@@ -32,7 +32,7 @@ func numDecodings(s string) int {
 			return
 		}
 
-		// pick one sum
+		// pick one num
 		dfs(start + 1)
 
 		// pick two num
