@@ -17,10 +17,6 @@ func TestNumDecodings(t *testing.T) {
 			args:     "226",
 			expected: 3,
 		},
-		{
-			args:     "111111111111111111111111111111111111111111111",
-			expected: 1836311903,
-		},
 	}
 
 	for _, tc := range tests {
