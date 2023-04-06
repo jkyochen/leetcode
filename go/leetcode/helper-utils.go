@@ -23,7 +23,7 @@ func Equal[T comparable](a, b []T) bool {
 	return true
 }
 
-func EqualArray(a, b [][]int) bool {
+func EqualArray[T comparable](a, b [][]T) bool {
 	if len(a) != len(b) {
 		return false
 	}
