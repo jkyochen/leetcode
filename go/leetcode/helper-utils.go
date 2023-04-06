@@ -11,19 +11,7 @@ func GetFunctionName(i interface{}) string {
 	return strs[len(strs)-1]
 }
 
-func Equal(a, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i, v := range a {
-		if v != b[i] {
-			return false
-		}
-	}
-	return true
-}
-
-func EqualString(a, b []string) bool {
+func Equal[T comparable](a, b []T) bool {
 	if len(a) != len(b) {
 		return false
 	}

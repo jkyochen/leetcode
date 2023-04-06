@@ -26,7 +26,7 @@ func TestRestoreIpAddresses(t *testing.T) {
 	for _, tc := range tests {
 		for _, v := range restoreIpAddressess {
 			result := v(tc.args)
-			if !EqualString(result, tc.expected) {
+			if !Equal(result, tc.expected) {
 				t.Fatalf(`Test func:"%s" case:"%v" failed — Expected %v, got %v`, GetFunctionName(v), tc.args, tc.expected, result)
 			}
 		}
