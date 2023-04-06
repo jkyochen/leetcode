@@ -22,21 +22,26 @@ func restoreIpAddresses(s string) []string {
 		if segment >= 5 || start >= len(strs) {
 			return
 		}
-		pickOne := strs[start]
-		if isValidIpSegment(pickOne) {
-			dfs(start+1, segment+1, append(ip, pickOne))
+
+		// pick one
+		dfs(start+1, segment+1, append(ip, strs[start]))
+
+		// pick two
+		if start+2 > len(strs) {
+			return
 		}
-		if start+2 <= len(strs) {
-			pickTwo := strings.Join(strs[start:start+2], "")
-			if isValidIpSegment(pickTwo) {
-				dfs(start+2, segment+1, append(ip, pickTwo))
-			}
+		pickTwo := strings.Join(strs[start:start+2], "")
+		if isValidIpSegment(pickTwo) {
+			dfs(start+2, segment+1, append(ip, pickTwo))
 		}
-		if start+3 <= len(strs) {
-			pickThree := strings.Join(strs[start:start+3], "")
-			if isValidIpSegment(pickThree) {
-				dfs(start+3, segment+1, append(ip, pickThree))
-			}
+
+		// pick three
+		if start+3 > len(strs) {
+			return
+		}
+		pickThree := strings.Join(strs[start:start+3], "")
+		if isValidIpSegment(pickThree) {
+			dfs(start+3, segment+1, append(ip, pickThree))
 		}
 	}
 	dfs(0, 1, []string{})
