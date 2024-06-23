@@ -1,6 +1,6 @@
 
 .PHONY: all
-all: go js
+all: go js ruby
 
 .PHONY: install
 install:
@@ -13,6 +13,10 @@ go:
 .PHONY: js
 js:
 	cd js && yarn test $(filter-out $@,$(MAKECMDGOALS))
+
+.PHONY: ruby
+ruby:
+	cd ruby && ruby run_tests.rb $(filter-out $@,$(MAKECMDGOALS))
 
 %:
 	@true
